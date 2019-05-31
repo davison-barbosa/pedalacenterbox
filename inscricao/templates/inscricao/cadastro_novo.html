@@ -1,0 +1,40 @@
+{% block content %}
+    <h1>Pedala centerbox</h1>
+
+    
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+
+        <label for="{{ form.nome.id_for_label }}">Nome</label>
+        {{ form.nome }}
+        <br>
+
+        <label name="idemail" for="{{ form.email.id_for_label }}">E-mail</label>
+        {{ form.email }}
+        <br>
+
+        <label for="{{ form.telefone.id_for_label }}">Telefone</label>
+        {{ form.telefone }}
+        <br>
+
+        <label for="{{ form.lojacompra.id_for_label }}">Qual Loja compra</label>
+        {{ form.lojacompra }}
+        <br>
+
+        <label for="{{ form.sexo.id_for_label }}">Sexo</label>
+        {{ form.sexo }}
+        <br>
+
+        <label for="{{ form.outeventos.id_for_label }}">Já participou dos eventos passados</label>
+        {{ form.outeventos }}
+        <br>
+
+        <label for="{{ form.alugar.id_for_label }}">Alugar bicicleta no dia</label>
+        {{ form.alugar }}
+        <br>
+
+        <br>
+        <button type="submit" class="save btn btn-default">Cadastrar</button>
+        
+    </form>
+{% endblock %}

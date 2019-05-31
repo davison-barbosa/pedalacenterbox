@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+
+<div>
+    <h1>Pedala centerbox</h1>
+</div>
+
+<div>
+    <h3><a href="/cadastro/novo">Novo Cadastro</a></h3>
+</div>
+
+<table>
+  <tbody>
+      <tr>
+        <th>Loja</th>
+        <th>Qnte cadastrados</th>
+      </tr>
+    {% for cadastro in cadastrados %}
+
+      <tr>
+        <td>{{ cadastro.lojacompra }}</td>
+        <td>{{ cadastro.total }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<br>
+<table>
+  <tbody>
+      <tr>
+        <th>Loja</th>
+        <th>Participante</th>
+        <th>E-mail</th>
+        <th>Telefone</th>
+        <th>Participou outros eventos</th>
+        <th>Alugar Bicicleta</th>
+      </tr>
+    {% for lista in listacadastro %}
+
+      <tr>
+        <td>{{ lista.lojacompra }}</td>
+        <td>{{ lista.nome }}</td>
+        <td>{{ lista.email }}</td>
+        <td>{{ lista.telefone }}</td>
+        <td>{{ lista.outeventos }}</td>
+        <td>{{ lista.alugar }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+</body>
+</html>

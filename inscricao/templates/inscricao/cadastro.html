@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+{% block content %}
+<head>
+	<title>3º Pedala Centerbox - Ficha de inscrição</title>
+	<meta charset="UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicons.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css1' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="contact1">
+		<div class="container-contact1">
+			<div class="contact1-pic js-tilt" data-tilt>
+				<img src="{% static 'images/img-01.png' %}" alt="IMG">
+			</div>
+
+			<form class="contact1-form validate-form" method="POST">
+		    	{% csrf_token %}
+				<span class="contact1-form-title">
+					Preencha o formulário e garanta sua inscrição!
+				</span>
+
+				<div class="wrap-input1 validate-input" data-validate = "Este campo é obrigatório">
+					<!--input class="input1" type="text" name="nome" placeholder="Nome*" maxlength="35" required="">-->
+					{{ form.nome }}
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="wrap-input1 validate-input" data-validate = "Este campo é obrigatório">
+					<!--<input class="input1" type="email" name="email" placeholder="E-mail">-->
+					{{ form.email }}
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="wrap-input1 validate-input" data-validate = "Este campo é obrigatório">
+					<!--<input class="input1" type="text" name="telefone" placeholder="Telefone*" required="">-->
+					{{ form.telefone }}
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="wrap-input1 validate-input" data-validate = "Este campo é obrigatório">
+					<!--<input class="input1" type="text" placeholder="Data de nascimento*"required>-->
+					{{ form.dtnascimento }}
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="wrap-input1 validate-input" data-validate = "Este campo é obrigatório">
+					<!--
+					<select name="loja" id="loja" class="input1" type="select" name="loja" placeholder="Escolha a loja para retirar seu kit" required="">
+						<option value="nenhuma" selected=""> Escolha a loja para retirar seu kit: </option> 
+						<option value="Messejana"> Centerbox Messejana </option>
+						<option value="José Bastos"> Centerbox José Bastos </option>
+						<option value="Conceito"> Centerbox Papicu </option>
+						<option value="Genibaú"> Centerbox Genibaú </option>
+					</select>
+					-->
+					<label>Escolha a loja para retirar seu kit</label>
+					{{ form.lojacompra }}
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="wrap-input1 validate-input" data-validate = "Este campo é obrigatório">
+					<label>Você precisará alugar bicicleta para o evento?</label>
+					<br>
+					<!--
+					<input type="radio" name="aluguel" /> sim, vou alugar. <br>
+					<input type="radio" name="aluguel" /> não, já tenho minha bike.
+					-->
+					{{ form.alugar }}
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="wrap-input1 validate-input" data-validate = "Este campo é obrigatório">
+					<label>Você já participou de alguma edição anterior do Pedala Centerbox?</label>
+					<br>
+					<!--
+					<input type="radio" name="participacao" /> sim <br>
+					<input type="radio" name="participacao" /> não
+					-->
+					{{ form.outeventos }}
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="container-contact1-form-btn">
+					<button class="contact1-form-btn" type="submit">
+						<span>
+							Confirmar inscrição!
+							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}
+
+
+
+
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js1' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/tilt/tilt.jquery.min.js' %}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $('#telefone').mask('(00) 0000-0000', {placeholder:"00 0000-0000"});
+});
+</script>
+
+</body>
+</html>
